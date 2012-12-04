@@ -3,21 +3,23 @@
 
 #include <string>
 #include "Entry.h"
+#include <vector>
 
 using namespace std;
 
 template <typename T>
 class Hash {
   private:
-    int* hash;
+    vector< Entry<T>* >* hash;
     int size;
-    void hashFunction(string k);
+    T def;
+    int hashFunction(string k);
 
   public:
-    Hash(int size = 20);
+    Hash(T d);
     ~Hash();
     void insert(string k, T v);
-    void remove(string k, T v);
+    void remove(string k);
     T find(string k);
 };
 

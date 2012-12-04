@@ -37,7 +37,8 @@ void Hash<T>::remove(string k) {
   vector< Entry<T>* >* temp = &(hash[key]);
   for(int i=0; i< (int) temp->size(); ++i) {
     if(temp->at(i)->getKey() == k) {
-      delete temp->at(i);
+      temp->erase(temp->begin() + i-1);
+      break;
     }
   }
 }
